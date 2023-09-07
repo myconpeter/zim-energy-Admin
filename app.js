@@ -24,12 +24,12 @@ require('./config/passport');
 //  .catch((err)=> console.log(err)); 
  
 //local connection
-mongoose.connect('mongodb://localhost/fundLab', {
+mongoose.connect('mongodb://localhost/zimdb', {
    useNewUrlParser: true,
    useUnifiedTopology: true,
   
  })
- .then(() => console.log('connected to db'))
+ .then(() => console.log('connected to zim db'))
 .catch((err)=> console.log(err)); 
 
 
@@ -43,6 +43,7 @@ const deleteRoutes = require("./routes/delete");
 const userRoutes = require("./routes/user");
 const depositRoutes = require("./routes/deposit");
 const editRoutes = require("./routes/edit");
+const addAccountRoutes = require("./routes/addAccount");
 
 
 
@@ -89,8 +90,9 @@ app.use(deleteRoutes);
 app.use(userRoutes);
 app.use(depositRoutes);
 app.use(editRoutes);
+app.use(addAccountRoutes);
 
 
 app.listen(PORT, ()=> {
-    console.log("fundlab is now running on port 1000");
+    console.log("zim Admin is now running on port 1000");
 });

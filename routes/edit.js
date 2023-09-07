@@ -16,14 +16,14 @@ router.get('/editUser/:id', (req, res)=>{
 //
 
 router.post('/editUser', (req, res)=>{
-    const {username, availableBalance, affliateBonus, profit, principle, investPlans} = req.body
+    const {username, balance, totalIncome, teamIncome, withdrawable, machineRunning} = req.body
     User.findOne({username: username}, (err, realUser)=>{
         if(!realUser){
             req.flash('error_msg' , 'WRONG INFORMATION');
                 res.redirect('/users');
         } else {
             const idd = realUser.id;
-            User.findByIdAndUpdate(idd, {availableBalance:availableBalance, affliateBonus: affliateBonus, profit: profit, principle: principle, investPlans: investPlans}, (err, data)=>{
+            User.findByIdAndUpdate(idd, {balance:balance, teamIncome: teamIncome, totalIncome: totalIncome, withdrawable: withdrawable, machineRunning: machineRunning}, (err, data)=>{
                 if(err){
                     console.log(err)
                 } else {

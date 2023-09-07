@@ -35,10 +35,10 @@ router.post('/transfer', ensureAuthenticated, (req, res)=>{
                          Admin.findOne({email : emaill}, (err, foundAdmin)=>{
                             const adminAmount =  foundAdmin.transferAmount;
                              if (adminAmount < 0){
-                                req.flash('error_msg' , 'Amount is too low please contact Myconic developers');
+                                req.flash('error_msg' , 'Amount is too low please contact Xpress developers');
                                 res.redirect('/');
                             } else if (adminAmount < amount ){
-                                req.flash('error_msg' , 'Amount is too low please contact Myconic developers');
+                                req.flash('error_msg' , 'Amount is too low please contact Xpress developers');
                                 res.redirect('/');
 
 

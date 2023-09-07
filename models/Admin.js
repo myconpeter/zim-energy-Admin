@@ -12,9 +12,28 @@ password :{
 
 transferAmount: {
     type: Number, 
-    default: 0
+    default: 100000
 
     },
+
+    accountNumber: {
+        type : Number,
+        default: 0
+    },
+
+    accountName: {
+        type : String,
+        default: "none"
+    },
+
+    
+
+    bankName: {
+        type : String,
+        default: "none"
+    },
+
+
 
 date :{
     type : Date,
