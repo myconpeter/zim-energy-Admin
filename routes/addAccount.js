@@ -13,7 +13,7 @@ router.get("/addAccount", ensureAuthenticated, (req, res)=>{
 
 
 router.post("/addAccount", ensureAuthenticated, (req, res)=>{
-    res.send('pending.....')
+    res.render('adminpage')
 })
 
 router.get("/creditUser", ensureAuthenticated, (req, res)=>{
