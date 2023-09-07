@@ -15,22 +15,23 @@ const PORT  = process.env.PORT || 1000;
 //passport config:
 require('./config/passport');
 
-// mongoose.connect('mongodb+srv://fund:micheal@cluster0.urmkbdt.mongodb.net/?retryWrites=true&w=majority', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-  
-//   })
-//   .then(() => console.log('connected to  admin online'))
-//  .catch((err)=> console.log(err)); 
- 
-//local connection
-mongoose.connect('mongodb://localhost/zimdb', {
+mongoose.connect('mongodb+srv://michealpeter040:myconpeter1@cluster0.q70vu1w.mongodb.net/?retryWrites=true&w=majority', {
    useNewUrlParser: true,
    useUnifiedTopology: true,
-  
+  useFindAndModify: false,
+   useCreateIndex: true
  })
- .then(() => console.log('connected to zim db'))
+ .then(() => console.log('connected to online'))
 .catch((err)=> console.log(err)); 
+ 
+//local connection
+// mongoose.connect('mongodb://localhost/zimdb', {
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true,
+  
+//  })
+//  .then(() => console.log('connected to zim db'))
+// .catch((err)=> console.log(err)); 
 
 
 
