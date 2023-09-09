@@ -15,15 +15,15 @@ router.get('/editUser/:id', (req, res)=>{
 });
 //
 
-router.post('/editUser', (req, res)=>{
-    const {username, balance, totalIncome, teamIncome, withdrawable, machineRunning} = req.body
+router.post('/editUser',ensureAuthenticated, (req, res)=>{
+    const {username, balance, totalIncome, teamIncome, withdrawable, machineRunning, dailyPay} = req.body
     User.findOne({username: username}, (err, realUser)=>{
         if(!realUser){
             req.flash('error_msg' , 'WRONG INFORMATION');
                 res.redirect('/users');
         } else {
             const idd = realUser.id;
-            User.findByIdAndUpdate(idd, {balance:balance, teamIncome: teamIncome, totalIncome: totalIncome, withdrawable: withdrawable, machineRunning: machineRunning}, (err, data)=>{
+            User.findByIdAndUpdate(idd, {balance:balance, teamIncome: teamIncome, totalIncome: totalIncome, withdrawable: withdrawable, machineRunning: machineRunning, dailyPay:dailyPay}, (err, data)=>{
                 if(err){
                     console.log(err)
                 } else {
