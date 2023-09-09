@@ -474,7 +474,7 @@ input.input100 {
 					<%- include ('./partials/messages') %>
 					<div style="padding-top: 10px;">
 						Username : 
-            <input style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;"  
+            <input style="width: 60%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;"  
             value="<%= duser.username %>" 
             placeholder="<%= duser.username %>" 
             name="username" 
@@ -485,7 +485,7 @@ input.input100 {
 					</div>
 					 
 					<div style="padding-top: 10px;">
-						Balance : <input style="width: 100%;
+						Balance : <input style="width: 60%;
 						padding: 12px 20px;
 						margin: 8px 0;
 						box-sizing: border-box;"  value="<%= duser.balance %>" placeholder="<%= duser.balance %>" name="balance" type="balance"  type="number">
@@ -496,7 +496,7 @@ input.input100 {
 					
 
 					<div style="padding-top: 10px;">
-						Total Income : <input style="width: 100%;
+						Total Income : <input style="width: 60%;
 						padding: 12px 20px;
 						margin: 8px 0;
 						box-sizing: border-box;"  value="<%= duser.totalIncome %>" placeholder="<%= duser.totalIncome %>" name="totalIncome" type="totalIncome"  type="number">
@@ -504,7 +504,7 @@ input.input100 {
 					</div>
 
 					<div style="padding-top: 10px;">
-						Team Income : <input style="width: 100%;
+						Team Income : <input style="width: 60%;
 						padding: 12px 20px;
 						margin: 8px 0;
 						box-sizing: border-box;"  value="<%= duser.teamIncome %>" placeholder="<%= duser.teamIncome %>" name="teamIncome" type="teamIncome"  type="number">
@@ -512,7 +512,7 @@ input.input100 {
 					</div>
 					
 					<div style="padding-top: 10px;">
-						Withdrawable : <input style="width: 100%;
+						Withdraw : <input style="width: 60%;
 						padding: 12px 20px;
 						margin: 8px 0;
 						box-sizing: border-box;"  value="<%= duser.withdrawable %>" placeholder="<%= duser.withdrawable %>" name="withdrawable" type="withdrawable"  type="number">
@@ -520,10 +520,19 @@ input.input100 {
 					</div>
 
           <div style="padding-top: 10px;">
-						Daily Pay : <input style="width: 100%;
+						Today's Income : <input style="width: 60%;
 						padding: 12px 20px;
 						margin: 8px 0;
 						box-sizing: border-box;"  value="<%= duser.dailyPay %>" placeholder="<%= duser.dailyPay %>" name="dailyPay" type="dailyPay"  type="number">
+
+					</div>
+					 
+
+          <div style="padding-top: 10px;">
+						Assets : <input style="width: 60%;
+						padding: 12px 20px;
+						margin: 8px 0;
+						box-sizing: border-box;"  value="<%= duser.assets %>" placeholder="<%= duser.assets %>" name="assets" type="assets"  type="number">
 
 					</div>
 					 
