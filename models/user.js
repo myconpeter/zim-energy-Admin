@@ -40,9 +40,6 @@ hasInvested :{
     default : false
 } ,
 
-
-
-
 balance : {
     type: Number, 
     default: 0
@@ -75,7 +72,7 @@ withdrawable: {
    
 machineRunning: {
     type :String,
-    default :"Current machine"
+    default :"No machine Running"
 },
 
 dailyPay: {
@@ -116,10 +113,16 @@ dailyMatureDate: {
     type: Date,
 },
 
-date :{
-    type : Date,
-    default :Date.now()
-}
+requestedAmount :{
+    type: Number,
+    default :0
+    
+  },
+
+  isWithdrawable :{
+    type: Boolean,
+    default: false
+  },
 
 
 });

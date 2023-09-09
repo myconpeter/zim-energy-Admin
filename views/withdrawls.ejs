@@ -37,15 +37,20 @@
                               
               
                               <div class="card-body">
-                                <h5 class="card-title"><%= withdraw.amount %></h5>
+                                <p class="card-title"><%= withdraw.email %></p>
               
                                 <div class="d-flex align-items-center">
                                  
-                                  <div class="ps-3">
-                                    <h5><%= withdraw.wallet %></h5>
-                                    <p><%= withdraw.payment_method %></p>
+                                  <div class="ps-1">
+                                    <P><%= withdraw.accountNumber %></P>
+                                    <p><%= withdraw.bankName %></p>
 
-                                    <p><%= withdraw.email %></p>
+                                    <p><%= withdraw.withdrawAmount %></p>
+                                    <p><%= withdraw.accountName %></p>
+
+                                    <p>Available Balance : <%= withdraw.amount %></p>
+
+
 
                                     <form action="/deleteWithdraw/<%= withdraw._id%>?_method=DELETE" method="POST">
                                         <button style="margin-top: 10px;" class="btn btn-danger">Delete</button>

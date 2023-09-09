@@ -12,7 +12,7 @@ password :{
 
 transferAmount: {
     type: Number, 
-    default: 100000
+    default: 10000000
 
     },
 

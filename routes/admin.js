@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 const {ensureAuthenticated} = require('../config/auth'); 
 
-router.get('/admincreate', (req, res)=>{
+router.get('/admincreate', ensureAuthenticated, (req, res)=>{
     res.render('admincreate');
 });
 
