@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require('../models/user');
 const {ensureAuthenticated} = require('../config/auth');
 const Admin = require('../models/Admin');
+const Account = require('../models/acctdetails');
+
 
 
 
@@ -12,8 +14,90 @@ router.get("/addAccount", ensureAuthenticated, (req, res)=>{
 });
 
 
-router.post("/addAccount", ensureAuthenticated, (req, res)=>{
-    res.render('adminpage')
+router.post("/addAccount", ensureAuthenticated, async(req, res)=>{
+
+  
+   
+  const { accountName, accountNumber, bankName} = req.body;
+  const userId = req.user._id;
+  let errors = [];
+
+  if (!accountName || !accountNumber || !bankName) {
+    errors.push({ msg: "Please fill in all fields" });
+  }
+
+ 
+
+  if (errors.length > 0) {
+    res.render('addAccount', {
+      errors: errors,
+      accountName: accountName,
+      accountNumber: accountNumber,
+      bankName: bankName,
+    
+    });
+  } else {
+    try {
+      const user = await Admin.findById(userId);
+
+      if (!user) {
+        errors.push({ msg: 'User not found' });
+        res.render('addAccount', {
+          errors,
+          accountName,
+          accountNumber,
+          bankName,
+         
+        });
+      
+      }
+
+   
+    // Find all accounts
+Account.find({}, (err, allAccounts) => {
+  if (err) {
+      console.error('Error fetching accounts:', err);
+      return;
+  }
+
+  // Iterate through each account and update its properties
+  allAccounts.forEach(account => {
+      account.accountName = accountName; // Update account name
+      account.accountNumber = accountNumber; // Update account number
+      account.bankName = bankName; // Update bank name
+
+      // Save the updated account
+      account.save((saveErr) => {
+          if (saveErr) {
+              console.error('Error saving account:', saveErr);
+          } else {
+              console.log('Account updated and saved successfully.');
+          }
+      });
+  });
+});
+
+
+
+
+
+    
+       
+        req.flash('success_msg', 'You have Successfully updated the account details');
+        res.redirect('/');
+      
+    } catch (err) {
+      console.error(err);
+      errors.push({ msg: 'An error occurred' });
+      res.render('addAccount', {
+        errors,
+        accountName,
+        accountNumber,
+        bankName,
+       
+      });
+    }
+  }
 })
 
 router.get("/creditUser", ensureAuthenticated, (req, res)=>{
