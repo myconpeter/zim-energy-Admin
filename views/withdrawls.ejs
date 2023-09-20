@@ -51,10 +51,14 @@
                                     <p>Available Balance : <%= withdraw.amount %></p>
 
 
-
-                                    <form action="/deleteWithdraw/<%= withdraw._id%>?_method=DELETE" method="POST">
-                                        <button style="margin-top: 10px;" class="btn btn-danger">Delete</button>
-                                      </form> 
+                                    <% if(withdraw.isConfirmed == false) { %>
+                                    <form action="/approve/<%= withdraw._id%>" method="POST">
+                                        <button style="margin-top: 10px;" class="btn btn-danger">Approve</button>
+                                        
+                                      </form>
+                                      <% }else { %>
+                                      <button style="margin-top: 10px;" class="btn btn-success">Paid</button>
+                                      <% } %>
                                   </div>
                                 </div>
                               </div>

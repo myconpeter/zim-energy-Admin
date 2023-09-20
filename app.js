@@ -15,7 +15,7 @@ const PORT  = process.env.PORT || 1000;
 //passport config:
 require('./config/passport');
 
-mongoose.connect('mongodb+srv://michealpeter040:ExTjmazipXUskLnl@cluster0.q70vu1w.mongodb.net/?retryWrites=true&w=majority', {
+ mongoose.connect('mongodb+srv://michealpeter040:ExTjmazipXUskLnl@cluster0.q70vu1w.mongodb.net/?retryWrites=true&w=majority', {
    useNewUrlParser: true,
    useUnifiedTopology: true,
 //   useFindAndModify: false,
